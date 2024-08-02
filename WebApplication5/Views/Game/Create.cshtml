@@ -1,0 +1,65 @@
+﻿@model WebApplication5.ViewModel.MyGameViewCreate
+<link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+@{
+    var ActionName = Model == null ? "Create" : "Edit";
+}
+<form asp-action="@ActionName" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <label asp-for="Name" class="form-label mt-4"></label>
+                <input type="text" class="form-control" asp-for="Name">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Price" class="form-label mt-4"></label>
+                <input type="text" class="form-control" asp-for="Price">
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Description" class="form-label mt-4"></label>
+                <textarea class="form-control" asp-for="Description"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+                <small class="form-text text-muted">give a hint</small>
+            </div>
+            <div>
+                <label asp-for="Image" class="form-label mt-4"></label>
+                <input id="file" type="file" class="form-control" asp-for="Image">
+            </div>
+            <div>
+                <label asp-for="Categories" class="form-label mt-4  custom-select"></label>
+                <select  multiple class="form-select" asp-for="Categories" asp-items="@Model?.CategoriesList">
+                    <option>Select Categories</option>
+                </select>
+                <span asp-validation-for="Categories" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Devices" class="form-label mt-4  custom-select"></label>
+                <select multiple class="form-select" asp-for="Devices" asp-items="@Model?.DevicesList">
+                    <option>Select Devices</option>
+                </select>
+                <span asp-validation-for="Devices" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="#" style="max-height:300px;border-radius:10px" class="d-none d-flex justify-content-center align-content-center" id="pr" alt="Alternate Text" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-light text-black mt-4">Save</button>
+</form>
+@section Scripts {
+    <script src="~/lib/select2/js/select2.full.js"></script>
+    <script src="~/lib/select2/js/select2.full.min.js"></script>
+    <script src="~/lib/select2/js/select2.js"></script>
+    <script src="~/lib/select2/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#file').on('change', function () {
+                $('#pr').attr('src', window.URL.createObjectURL(this.files[0])).removeClass('d-none');
+            });
+        });
+        $(document).ready(function () {
+            $('select').select2();
+        })
+    </script>
+}

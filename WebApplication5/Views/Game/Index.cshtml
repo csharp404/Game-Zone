@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebApplication5.Model.Game>
+<link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+<a class="btn btn-outline-secondary btn-lg mt-5" asp-action="Create">
+    Create Game <i class="bi bi-plus-circle"></i>
+</a>
+
+<div class="row mt-5">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card border-success mb-3" style="max-width: 26rem;">
+
+                <div class="card-body" style="background-image:url('@Url.Content("~/Images/" + item.ImgName)');background-size:cover;background-position:center;height:500px;">
+
+                    <div class="h-100">
+                        @foreach (var i in item.Categories)
+                        {
+
+                            <span class="badge bg-secondary">@i.Category.Name</span>
+                        }
+                    </div>
+                </div>
+                    <div class="card-footer text-muted d-flex justify-content-between align-content-center">
+                        <h5>@item.Name</h5>
+                        <div>
+                            @foreach (var j in item.Devices)
+                            {
+                                <i class="bi bi-@j.Device.Name.ToLower()  fs-4"></i>
+                            }
+                        </div>
+                   </div>
+               
+                <div class="text-muted d-flex justify-content-between align-content-center">
+
+                    <div >
+                        <i class="bi bi-tags-fill fs-6 text-bg-warning m-2 p-1 rounded-1 fw-bold ">@item.Price$</i>
+                        <button class="btn btn-secondary">Add to Cart</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+
+
+

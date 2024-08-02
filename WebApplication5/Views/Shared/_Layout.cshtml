@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Zone @ViewData["Title"]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Koh+Santepheap:wght@100;300;400;700;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication5.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+    <header>
+        @if (User.Identity.IsAuthenticated)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {
+            <nav class="navbar navbar-expand-lg bg-light mb-7" data-bs-theme="light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Game Zone</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarColor01">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" asp-action="Index" asp-controller="Game">
+                                    Games
+                                    <span class="visually-hidden">(current)</span>
+                                </a>
+                            </li>
+
+                            <!--
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#">Features</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#">Pricing</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#">About</a>
+                                                    </li>
+                                                    <li class="nav-item dropdown">
+                                                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#">Action</a>
+                                                            <a class="dropdown-item" href="#">Another action</a>
+                                                            <a class="dropdown-item" href="#">Something else here</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a class="dropdown-item" href="#">Separated link</a>
+                                                        </div>
+                                                    </li>
+                                                    -->
+                        </ul>
+                        <form class="d-flex align-items-center">
+                            <input class="form-control me-1" type="search" placeholder="Search">
+                            <button class="btn btn-secondary me-2" type="submit">Search</button>
+                            <div class="btn btn-danger">
+                                <a class="nav-link active" asp-action="SignOut" asp-controller="Account">
+                                    LogOut
+                                </a>
+                            </div>
+                            <div class="btn btn-warning me-2">
+                                <a class="nav-link active  me-2" asp-action="Manage" asp-controller="Account">
+                              
+                                    @User.Identity.Name
+                                </a>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </nav>
+        }
+    </header>
+    <div class="container">
+
+
+        <main role="main" class="pb-3  mt-lg-5">
+
+
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - WebApplication5 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
