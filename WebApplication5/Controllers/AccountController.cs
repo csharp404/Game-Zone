@@ -48,14 +48,19 @@ namespace WebApplication5.Controllers
         {
             var user = new IdentityUser
             {
-                Email = reg.UserName,
-                UserName = reg.Email,
+                Email = reg.Email,
+                UserName = reg.UserName,
                 NormalizedUserName = reg.Name
             };
             var res = await UserManager.CreateAsync(user, reg.Password);
             if (res.Succeeded)
             {
-                return RedirectToAction("Login");
+              var re =   await UserManager.AddToRoleAsync(user,"User");
+                if (!re.Succeeded)
+                {
+                }
+                else
+                    return RedirectToAction("Login");
             }
             return View(reg);
 

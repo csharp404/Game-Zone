@@ -1,0 +1,41 @@
+﻿@model WebApplication5.ViewModel.RoleViewModel
+
+
+<button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#@Model.Name" aria-controls="offcanvasExample">
+   Update
+</button>
+<div class="modal fade" id="@Model.Name">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Role Edit</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Edit" asp-controller="Role">
+                    <div class="form-group">
+                        <label asp-for="Name" class="form-label mt-4"></label>
+                        <input type="text" class="form-control" asp-for="Name">
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div><div class="form-group">
+                        <label asp-for="ID" class="form-label mt-4"></label>
+                        <input type="text" readonly class="form-control" asp-for="ID">
+                        <span asp-validation-for="ID" class="text-danger"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

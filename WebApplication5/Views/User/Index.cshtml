@@ -1,0 +1,42 @@
+﻿@model IEnumerable<WebApplication5.ViewModel.UserViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Users</h1>
+
+
+<table  class="table table-hover">
+    <thead>
+        <tr class="table-dark">
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>Roles</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr class="table-dark">
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @string.Join(" , ",item.Roles)
+            </td>
+            <td>
+                @Html.ActionLink("Manage", "Manage", new { id=item.Id }) 
+               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,34 @@
+﻿@using WebApplication5.ViewModel
+@model IEnumerable<WebApplication5.ViewModel.RoleViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Roles</h1>
+<partial name="_PartialCreateView" model="new RoleViewModel()" ></partial>
+<table class="table">
+    <thead>
+        <tr class="table-secondary">
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr class="table-dark">
+            <td >
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                    <partial name="_PartialEditView" model="new RoleViewModel{ID=@item.ID,Name=item.Name}"></partial>
+                    <partial name="_PartialDeleteView" model="new RoleViewModel{ID='a' + @item.ID,Name='a' + item.Name}"></partial>
+            </td> 
+           
+        </tr>
+}
+    </tbody>
+</table>
+
