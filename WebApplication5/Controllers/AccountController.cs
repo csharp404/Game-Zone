@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
-using WebApplication5.ViewModel;
-
+﻿
 namespace WebApplication5.Controllers
 {
     public class AccountController : Controller
@@ -55,7 +51,7 @@ namespace WebApplication5.Controllers
             var res = await UserManager.CreateAsync(user, reg.Password);
             if (res.Succeeded)
             {
-              var re =   await UserManager.AddToRoleAsync(user,"User");
+                var re = await UserManager.AddToRoleAsync(user, "User");
                 if (!re.Succeeded)
                 {
                 }
@@ -73,7 +69,7 @@ namespace WebApplication5.Controllers
         public async Task<IActionResult> Manage()
         {
             var curr = await UserManager.GetUserAsync(User);
-    
+
             if (curr != null)
             {
                 var mvm = new ManageViewModel
@@ -92,7 +88,7 @@ namespace WebApplication5.Controllers
         public async Task<IActionResult> Manage(ManageViewModel manage)
         {
             var curr = await UserManager.GetUserAsync(User);
-  
+
             curr.PhoneNumber = manage.PhoneNumber;
             curr.Email = manage.Email;
             var r = await UserManager.UpdateAsync(curr);

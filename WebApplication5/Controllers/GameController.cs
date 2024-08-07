@@ -1,10 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System.IO;
-using System.Security.Cryptography.Xml;
-using WebApplication5.Model;
-using WebApplication5.ViewModel;
+﻿
 
 namespace WebApplication5.Controllers
 {
